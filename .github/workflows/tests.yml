@@ -49,17 +49,17 @@ jobs:
     - name: Run Tests scripts on localhost
       run: python tests/seleniumTests.py http://localhost:8000
 
-    deploy:
-      permissions:
-        contents: write
-      needs: [ code_validator, run_tests ] # Wait before running "deploy" until "validate_code" and "run_tests" are done
-      runs-on: ubuntu-latest
+  deploy:
+    permissions:
+      contents: write
+    needs: [ code_validator, run_tests ] # Wait before running "deploy" until "validate_code" and "run_tests" are done
+    runs-on: ubuntu-latest
 
-      steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v2
-      
-      - name: Deploy website 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          folder: florist-blaklint # The folder that should be used in the deployment
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v2
+    
+    - name: Deploy website 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        folder: florist-blaklint # The folder that should be used in the deployment
