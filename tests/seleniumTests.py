@@ -1,3 +1,4 @@
+from curses.ascii import controlnames
 import unittest
 import sys
 from selenium import webdriver
@@ -26,6 +27,25 @@ class CheckWebsite(unittest.TestCase):
         self.browser.get(self.website_url)
         title = self.browser.title
         assert title == "Florist Blåklinten"
+
+    #checks that the opentimes are on the website
+    def test_check_openTime(self):
+        self.browser.get(self.website_url)
+        openTime = self.browser.find_element(By.TAG_NAME, "body").text
+
+        controlNames = [
+            "Öppettider",
+            "Månåndag: 10-16",
+            "Tisdag: 10-16",
+            "Onsdag: 10-16",
+            "Torsdag: 10-16",
+            "Fredag: 10-16",
+            "Lördag: 12-15",
+            "Söndag: Stängt",
+        ]
+
+        for text in controlNames:
+            assert text in openTime
         
     #checks the links and clicks on them and compares it with "current_url"
     def test_click_link_facebook(self):
