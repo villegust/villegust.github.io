@@ -35,7 +35,7 @@ class CheckWebsite(unittest.TestCase):
 
         controlNames = [
             "Öppettider",
-            "Månåndag: 10-16",
+            "Måndag: 10-16",
             "Tisdag: 10-16",
             "Onsdag: 10-16",
             "Torsdag: 10-16",
