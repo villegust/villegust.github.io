@@ -15,15 +15,27 @@ span{
   font-weight: bold;
 }
 
-.content{
+.container{
+  width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+}
+
+.openTime, .contact{
+  display: flex;
   flex-direction: column;
 }
 
-.content h2{
-    font-size: 20px;
+.openTime h1, .contact h1{
+  font-size: 25px;
+}
+
+.openTime p{
+  font-size: 20px;
+}
+
+.contact a{
+  color: black;
 }
 
 
