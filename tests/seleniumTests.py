@@ -46,6 +46,20 @@ class CheckWebsite(unittest.TestCase):
 
         for text in controlNames:
             assert text in openTime
+
+    def test_check_contact(self):
+        self.browser.get(self.website_url)
+        contact = self.browser.find_element(By.TAG_NAME, "body").text
+
+        controlText = [
+            "Kontakta oss", 
+            "Fjällgatan 32H 981 39 Finspång", 
+            "0630-555-555",
+            "info@blåklinten.se"
+        ]
+
+        for text in controlText:
+            assert text in contact
         
     #checks the links and clicks on them and compares it with "current_url"
     def test_click_link_facebook(self):
